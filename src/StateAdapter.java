@@ -5,7 +5,7 @@ public abstract class StateAdapter {
     public abstract void enter();
     public abstract void leave();
     
-    // Methods all states will have...
+    // Actions that can be done in every state...
     public abstract boolean pressBreakPedal();
     public abstract boolean pressGasPedal();
     
