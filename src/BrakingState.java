@@ -2,6 +2,19 @@ import timerREF.Notifiable;
 
 public class BrakingState extends StateAdapter implements Notifiable{
 
+	private static BrakingState instance;
+	
+	private BrakingState() {
+		
+	}
+	
+    public static BrakingState instance() {
+        if (instance == null) {
+            instance = new BrakingState();
+        }
+        return instance;
+    }
+	
 	@Override
 	public void timerTicked(int timeLeft) {
 		// TODO Auto-generated method stub

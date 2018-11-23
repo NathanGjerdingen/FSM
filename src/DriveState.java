@@ -1,6 +1,19 @@
 import timerREF.Notifiable;
 
 public class DriveState extends StateAdapter implements Notifiable{
+	
+	private static DriveState instance;
+	
+	private DriveState() {
+		
+	}
+	
+    public static DriveState instance() {
+        if (instance == null) {
+            instance = new DriveState();
+        }
+        return instance;
+    }
 
 	@Override
 	public void timerTicked(int timeLeft) {

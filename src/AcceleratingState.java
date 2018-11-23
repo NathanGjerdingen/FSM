@@ -2,6 +2,19 @@ import timerREF.Notifiable;
 
 public class AcceleratingState extends StateAdapter implements Notifiable{
 
+	private static AcceleratingState instance;
+	
+	private AcceleratingState() {
+		
+	}
+	
+    public static AcceleratingState instance() {
+        if (instance == null) {
+            instance = new AcceleratingState();
+        }
+        return instance;
+    }
+	
 	@Override
 	public void timerTicked(int timeLeft) {
 		// TODO Auto-generated method stub

@@ -1,7 +1,21 @@
+import statesREF.DoorClosedState;
 import timerREF.Notifiable;
 
 public class OffState extends StateAdapter implements Notifiable{
-
+	
+	private static OffState instance;
+	
+	private OffState() {
+		
+	}
+	
+    public static OffState instance() {
+        if (instance == null) {
+            instance = new OffState();
+        }
+        return instance;
+    }
+	
 	@Override
 	public void timerTicked(int timeLeft) {
 		// TODO Auto-generated method stub

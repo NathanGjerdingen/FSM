@@ -2,6 +2,19 @@ import timerREF.Notifiable;
 
 public class ParkState extends StateAdapter implements Notifiable{
 
+	private static ParkState instance;
+	
+	private ParkState() {
+		
+	}
+	
+    public static ParkState instance() {
+        if (instance == null) {
+            instance = new ParkState();
+        }
+        return instance;
+    }
+	
 	@Override
 	public void timerTicked(int timeLeft) {
 		// TODO Auto-generated method stub

@@ -1,7 +1,20 @@
 import timerREF.Notifiable;
 
 public class OnState extends StateAdapter implements Notifiable{
-
+	
+	private static OnState instance;
+	
+	private OnState() {
+		
+	}
+	
+    public static OnState instance() {
+        if (instance == null) {
+            instance = new OnState();
+        }
+        return instance;
+    }
+	
 	@Override
 	public void timerTicked(int timeLeft) {
 		// TODO Auto-generated method stub
