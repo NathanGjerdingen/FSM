@@ -1,6 +1,6 @@
 package statesREF;
 
-import displayREF.MicrowaveDisplay;
+import displayREF.VehilcleDisplay;
 
 /**
  * 
@@ -28,7 +28,7 @@ import displayREF.MicrowaveDisplay;
  *
  */
 public class MicrowaveContext {
-    private MicrowaveDisplay display;
+    private VehilcleDisplay display;
     private MicrowaveState currentState;
     private static MicrowaveContext instance;
 
@@ -58,7 +58,7 @@ public class MicrowaveContext {
      * @param display
      *            The current display object
      */
-    public void setDisplay(MicrowaveDisplay display) {
+    public void setDisplay(VehilcleDisplay display) {
         this.display = display;
     }
 

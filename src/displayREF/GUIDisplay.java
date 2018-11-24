@@ -1,5 +1,7 @@
 package displayREF;
 
+import VehicleContext;
+
 /**
  * 
  * @author Brahma Dathan and Sarnath Ramnath
@@ -30,144 +32,158 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-import statesREF.MicrowaveContext;
 
 /**
- * GUI to implement the MicrowaveDisplay interface A pretty elementary interface
+ * GUI to implement the VehicleDisplay interface A pretty elementary interface
  *
  */
-public class GUIDisplay extends Application implements MicrowaveDisplay, EventHandler<ActionEvent> {
-    private Button doorCloser;
-    private Button doorOpener;
-    private Button cookButton;
-    private Text doorStatus = new Text("Door Closed");
-    private Text timerValue = new Text("            ");
-    private Text lightStatus = new Text("Light Off");
-    private Text cookingStatus = new Text("Not cooking");
-    private static MicrowaveDisplay display;
-    private MicrowaveContext microwaveContext;
+public class GUIDisplay extends Application implements VehilcleDisplay, EventHandler<ActionEvent> {
+	private Button carOn;
+	private Button carOff;
+	private Button parkCar;
+	private Button driveCar;
+	private Button accelerateCar;
+	private Button brakeCar;
+	private Text powerStatus = new Text("Car Off");
+	private Text MPHValue = new Text("            ");
+	private Text gearStatus = new Text("Park");
+	private Text movementStatus = new Text("Brake");
+	private static VehilcleDisplay display;
+	private VehicleContext vehicleContext;
 
-    public static MicrowaveDisplay getInstance() {
-        return display;
-    }
+	public static VehilcleDisplay getInstance() {
+		return display;
+	}
 
-    /**
-     * Sets up the interface
-     */
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        microwaveContext = MicrowaveContext.instance();
-        microwaveContext.setDisplay(this);
-        display = this;
-        doorCloser = new Button("close door");
-        doorOpener = new Button("open door");
-        cookButton = new Button("cook");
+	/**
+	 * Sets up the interface
+	 */
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		vehicleContext = VehicleContext.instance();
+		vehicleContext.setDisplay(this);
+		display = this;
+		carOn = new Button("On");
+		carOff = new Button("Off");
+		parkCar = new Button("Park");
+		driveCar = new Button("Drive");
+		accelerateCar = new Button("Accelerate");
+		brakeCar = new Button("Brake");
 
-        GridPane pane = new GridPane();
-        pane.setHgap(10);
-        pane.setVgap(10);
-        pane.setPadding(new Insets(10, 10, 10, 10));
-        pane.add(doorStatus, 0, 0);
-        pane.add(lightStatus, 1, 0);
-        pane.add(timerValue, 2, 0);
-        pane.add(cookingStatus, 3, 0);
-        pane.add(doorCloser, 4, 0);
-        pane.add(doorOpener, 5, 0);
-        pane.add(cookButton, 6, 0);
-        showDoorClosed();
-        showLightOff();
-        showTimeLeft(0);
-        doorCloser.setOnAction(this);
-        doorOpener.setOnAction(this);
-        cookButton.setOnAction(this);
-        Scene scene = new Scene(pane);
-        primaryStage.setScene(scene);
-        primaryStage.setTitle("Microwave Version 1");
-        try {
-            while (microwaveContext == null) {
-                Thread.sleep(1000);
-            }
-        } catch (Exception e) {
+		GridPane pane = new GridPane();
+		pane.setHgap(10);
+		pane.setVgap(10);
+		pane.setPadding(new Insets(10, 10, 10, 10));
+		pane.add(powerStatus, 0, 0);
+		pane.add(gearStatus, 1, 0);
+		pane.add(MPHValue, 2, 0);
+		pane.add(movementStatus, 3, 0);
+		pane.add(carOn, 4, 0);
+		pane.add(carOff, 5, 0);
+		pane.add(parkCar, 6, 0);
+		pane.add(driveCar, 7, 0);
+		pane.add(accelerateCar, 8, 0);
+		pane.add(brakeCar, 9, 0);
+		showCarOff();
+		showCarParked();
+		showMilesPerHour(0);
+		showBraking();
+		carOn.setOnAction(this);
+		carOff.setOnAction(this);
+		parkCar.setOnAction(this);
+		Scene scene = new Scene(pane);
+		primaryStage.setScene(scene);
+		primaryStage.setTitle("Vehicle State");
+		try {
+			while (vehicleContext == null) {
+				Thread.sleep(1000);
+			}
+		} catch (Exception e) {
 
-        }
-        primaryStage.show();
-        primaryStage.addEventHandler(WindowEvent.WINDOW_CLOSE_REQUEST, new EventHandler<WindowEvent>() {
-            @Override
-            public void handle(WindowEvent window) {
-                System.exit(0);
-            }
-        });
-    }
+		}
+		primaryStage.show();
+		primaryStage.addEventHandler(WindowEvent.WINDOW_CLOSE_REQUEST, new EventHandler<WindowEvent>() {
+			@Override
+			public void handle(WindowEvent window) {
+				System.exit(0);
+			}
+		});
+	}
 
-    /**
-     * Indicate that the light is on
-     */
-    @Override
-    public void showLightOn() {
-        lightStatus.setText("Light On");
-    }
+	/**
+	 * Indicate that the car is on
+	 */
+	@Override
+	public void showCarOn() {
+		powerStatus.setText("Car On");
+	}
 
-    /**
-     * Indicate that the light is off
-     */
-    @Override
-    public void showLightOff() {
-        lightStatus.setText("Light Off");
-    }
+	/**
+	 * Indicate that the car is off
+	 */
+	@Override
+	public void showCarOff() {
+		powerStatus.setText("Car Off");
+	}
 
-    /**
-     * Indicate that the door is closed
-     */
-    @Override
-    public void showDoorClosed() {
-        doorStatus.setText("Door Closed");
-    }
+	/**
+	 * Indicate that the car is parked
+	 */
+	@Override
+	public void showCarParked() {
+		gearStatus.setText("Car Parked");
+	}
 
-    /**
-     * Indicate that the door is opened
-     */
-    @Override
-    public void showDoorOpened() {
-        doorStatus.setText("Door Opened");
-    }
+	/**
+	 * Indicate that the car is in drive
+	 */
+	@Override
+	public void showCarDrive() {
+		gearStatus.setText("Car In Drive");
+	}
 
-    /**
-     * display the remaining time
-     * 
-     * @param the
-     *            value remaining
-     */
-    @Override
-    public void showTimeLeft(int value) {
-        timerValue.setText(" " + value);
-    }
+	/**
+	 * display the MPH of vehicle
+	 * 
+	 * @param the MPH
+	 */
+	@Override
+	public void showMilesPerHour(int value) {
+		MPHValue.setText(" " + value);
+	}
 
-    /**
-     * Indicate that it is cooking
-     */
-    @Override
-    public void showCooking() {
-        cookingStatus.setText("Cooking");
-    }
+	/**
+	 * Indicate that car is accelerating
+	 */
+	@Override
+	public void showAccelerating() {
+		movementStatus.setText("Accelerating");
+	}
 
-    /**
-     * Indicate that cooking is done
-     */
-    @Override
-    public void showNotCooking() {
-        cookingStatus.setText("Not cooking");
-    }
+	/**
+	 * Indicate that car is braking
+	 */
+	@Override
+	public void showBraking() {
+		movementStatus.setText("Braking");
+	}
 
-    @Override
-    public void handle(ActionEvent event) {
-        if (event.getSource().equals(doorCloser)) {
-            MicrowaveContext.instance().doorClosed();
-        } else if (event.getSource().equals(doorOpener)) {
-            MicrowaveContext.instance().doorOpened();
-        } else if (event.getSource().equals(cookButton)) {
-            MicrowaveContext.instance().cookRequested();
-        }
+	@Override
+	public void handle(ActionEvent event) {
+		if (event.getSource().equals(carOn)) {
+			VehicleContext.instance().method();
+		} else if (event.getSource().equals(carOff)) {
+			VehicleContext.instance().method();
+		} else if (event.getSource().equals(parkCar)) {
+			VehicleContext.instance().method();
+		} else if (event.getSource().equals(driveCar)) {
+			VehicleContext.instance().method();
+		} else if (event.getSource().equals(accelerateCar)) {
+			VehicleContext.instance().method();
+		} else if (event.getSource().equals(brakeCar)) {
+			VehicleContext.instance().method();
+		}
 
-    }
+	}
 
 }
