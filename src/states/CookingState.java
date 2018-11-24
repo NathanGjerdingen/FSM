@@ -1,7 +1,6 @@
-package statesREF;
-
-import timerREF.Notifiable;
-import timerREF.Timer;
+package states;
+import timer.Notifiable;
+import timer.Timer;
 
 /**
  * 

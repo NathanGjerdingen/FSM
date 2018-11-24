@@ -1,4 +1,5 @@
-package timerREF;
+package timer;
+
 
 /**
  * An entity that can be notified of timing events

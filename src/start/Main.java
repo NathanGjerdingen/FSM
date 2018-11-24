@@ -1,10 +1,10 @@
-package startREF;
+package start;
 
-import displayREF.GUIDisplay;
-import displayREF.VehilcleDisplay;
+import display.GUIDisplay;
+import display.MicrowaveDisplay;
 import javafx.application.Application;
-import statesREF.Clock;
-import statesREF.MicrowaveContext;
+import states.Clock;
+import states.MicrowaveContext;
 
 public class Main {
     public static void main(String[] args) {
@@ -21,7 +21,7 @@ public class Main {
             }
         } catch (InterruptedException ie) {
         }
-        VehilcleDisplay display = GUIDisplay.getInstance();
+        MicrowaveDisplay display = GUIDisplay.getInstance();
         MicrowaveContext.instance().setDisplay(display);
     }
 }

@@ -1,11 +1,9 @@
-import timerREF.Notifiable;
 
 public class BrakingState extends StateAdapter implements Notifiable{
 
 	private static BrakingState instance;
 	
 	private BrakingState() {
-		
 	}
 	
     public static BrakingState instance() {

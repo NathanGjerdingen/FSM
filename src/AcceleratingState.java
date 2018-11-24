@@ -1,11 +1,9 @@
-import timerREF.Notifiable;
 
 public class AcceleratingState extends StateAdapter implements Notifiable{
 
 	private static AcceleratingState instance;
 	
 	private AcceleratingState() {
-		
 	}
 	
     public static AcceleratingState instance() {

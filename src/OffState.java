@@ -1,12 +1,9 @@
-import statesREF.DoorClosedState;
-import timerREF.Notifiable;
 
 public class OffState extends StateAdapter implements Notifiable{
 	
 	private static OffState instance;
 	
 	private OffState() {
-		
 	}
 	
     public static OffState instance() {

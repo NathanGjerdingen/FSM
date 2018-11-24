@@ -1,11 +1,9 @@
-import timerREF.Notifiable;
 
 public class OnState extends StateAdapter implements Notifiable{
 	
 	private static OnState instance;
 	
 	private OnState() {
-		
 	}
 	
     public static OnState instance() {
