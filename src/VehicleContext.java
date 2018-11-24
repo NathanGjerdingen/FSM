@@ -1,5 +1,6 @@
 
 public class VehicleContext {
+	private VehilcleDisplay display;
 	private StateAdapter currentState;
 	private static VehicleContext instance;
 
@@ -14,5 +15,9 @@ public class VehicleContext {
 		}
 		return instance;
 	}
-	
+
+	public void setDisplay(VehilcleDisplay display) {
+		this.display = display;
+	}
+
 }

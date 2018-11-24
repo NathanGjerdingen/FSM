@@ -1,5 +1,3 @@
-package statesREF;
-
 import displayREF.VehilcleDisplay;
 
 /**
@@ -28,140 +26,137 @@ import displayREF.VehilcleDisplay;
  *
  */
 public class MicrowaveContext {
-    private VehilcleDisplay display;
-    private MicrowaveState currentState;
-    private static MicrowaveContext instance;
+	private VehilcleDisplay display;
+	private MicrowaveState currentState;
+	private static MicrowaveContext instance;
 
-    /**
-     * Make it a singleton
-     */
-    private MicrowaveContext() {
-        instance = this;
-        currentState = DoorClosedState.instance();
-    }
+	/**
+	 * Make it a singleton
+	 */
+	private MicrowaveContext() {
+		instance = this;
+		currentState = DoorClosedState.instance();
+	}
 
-    /**
-     * Return the instance
-     * 
-     * @return the object
-     */
-    public static MicrowaveContext instance() {
-        if (instance == null) {
-            instance = new MicrowaveContext();
-        }
-        return instance;
-    }
+	/**
+	 * Return the instance
+	 * 
+	 * @return the object
+	 */
+	public static MicrowaveContext instance() {
+		if (instance == null) {
+			instance = new MicrowaveContext();
+		}
+		return instance;
+	}
 
-    /**
-     * The display could change. So we have to get its refrence.
-     * 
-     * @param display
-     *            The current display object
-     */
-    public void setDisplay(VehilcleDisplay display) {
-        this.display = display;
-    }
+	/**
+	 * The display could change. So we have to get its refrence.
+	 * 
+	 * @param display The current display object
+	 */
+	public void setDisplay(VehilcleDisplay display) {
+		this.display = display;
+	}
 
-    /**
-     * Lets door closed state be the starting state adds the object as an
-     * observable for clock
-     */
-    public void initialize() {
-        instance.changeState(DoorClosedState.instance());
-    }
+	/**
+	 * Lets door closed state be the starting state adds the object as an observable
+	 * for clock
+	 */
+	public void initialize() {
+		instance.changeState(DoorClosedState.instance());
+	}
 
-    /**
-     * Called from the states to change the current state
-     * 
-     * @param nextState
-     *            the next state
-     */
-    public void changeState(MicrowaveState nextState) {
-        currentState.leave();
-        currentState = nextState;
-        currentState.enter();
-    }
+	/**
+	 * Called from the states to change the current state
+	 * 
+	 * @param nextState the next state
+	 */
+	public void changeState(MicrowaveState nextState) {
+		currentState.leave();
+		currentState = nextState;
+		currentState.enter();
+	}
 
-    public void cookRequested() {
-        currentState.cookRequested();
-    }
+	public void cookRequested() {
+		currentState.cookRequested();
+	}
 
-    /**
-     * Process door open request
-     */
-    public void doorOpened() {
-        currentState.doorOpened();
-    }
+	/**
+	 * Process door open request
+	 */
+	public void doorOpened() {
+		currentState.doorOpened();
+	}
 
-    /**
-     * Process door close request
-     */
-    public void doorClosed() {
-        currentState.doorClosed();
-    }
+	/**
+	 * Process door close request
+	 */
+	public void doorClosed() {
+		currentState.doorClosed();
+	}
 
-    /**
-     * This invokes the right method of the display. This helps protect the
-     * states from changes to the way the system utilizes the state changes.
-     * 
-     * @param time
-     *            time left for cooking
-     */
-    public void showTimeLeft(int time) {
-        display.showTimeLeft(time);
-    }
+	/**
+	 * This invokes the right method of the display. This helps protect the states
+	 * from changes to the way the system utilizes the state changes.
+	 * 
+	 * @param time time left for cooking
+	 */
+	public void showTimeLeft(int time) {
+		display.showTimeLeft(time);
+	}
 
-    /**
-     * This invokes the right method of the display. This helps protect the
-     * states from changes to the way the system utilizes the state changes.
-     * 
-     */
-    public void showLightOn() {
-        display.showLightOn();
-    }
+	/**
+	 * This invokes the right method of the display. This helps protect the states
+	 * from changes to the way the system utilizes the state changes.
+	 * 
+	 */
+	public void showLightOn() {
+		display.showLightOn();
+	}
 
-    /**
-     * This invokes the right method of the display. This helps protect the
-     * states from changes to the way the system utilizes the state changes.
-     * 
-     */
-    public void showLightOff() {
-        display.showLightOff();
-    }
+	/**
+	 * This invokes the right method of the display. This helps protect the states
+	 * from changes to the way the system utilizes the state changes.
+	 * 
+	 */
+	public void showLightOff() {
+		display.showLightOff();
+	}
 
-    /**
-     * This invokes the right method of the display. This helps protect the
-     * states from changes to the way the system utilizes the state changes.
-     * 
-     */
-    public void showCooking() {
-        display.showCooking();
-    }
+	/**
+	 * This invokes the right method of the display. This helps protect the states
+	 * from changes to the way the system utilizes the state changes.
+	 * 
+	 */
+	public void showCooking() {
+		display.showCooking();
+	}
 
-    /**
-     * This invokes the right method of the display. This helps protect the
-     * states from changes to the way the system utilizes the state changes.
-     * 
-     */
-    public void showNotCooking() {
-        display.showNotCooking();
-    }
+	/**
+	 * This invokes the right method of the display. This helps protect the states
+	 * from changes to the way the system utilizes the state changes.
+	 * 
+	 */
+	public void showNotCooking() {
+		display.showNotCooking();
+	}
 
-    /**
-     * This invokes the right method of the display. This helps protect the
-     * states from changes to the way the system utilizes the state changes.
-     * 
-     */
-    public void showDoorOpened() {
-        display.showDoorOpened();
-    }
+	/**
+	 * This invokes the right method of the display. This helps protect the states
+	 * from changes to the way the system utilizes the state changes.
+	 * 
+	 */
+	public void showDoorOpened() {
+		display.showDoorOpened();
+	}
 
-    /**
-     * This invokes the right method of the display. This helps protect the
-     * states from changes to the way the system utilizes the state changes.
-     * 
-     */
-    public void showDoorClosed() {
-        display.showDoorClosed();
-    }
+	/**
+	 * This invokes the right method of the display. This helps protect the states
+	 * from changes to the way the system utilizes the state changes.
+	 * 
+	 */
+	public void showDoorClosed() {
+		display.showDoorClosed();
+	}
 }

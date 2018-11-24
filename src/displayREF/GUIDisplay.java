@@ -1,6 +1,6 @@
 package displayREF;
 
-import VehicleContext;
+//import VehicleContext;
 
 /**
  * 
@@ -49,7 +49,7 @@ public class GUIDisplay extends Application implements VehilcleDisplay, EventHan
 	private Text gearStatus = new Text("Park");
 	private Text movementStatus = new Text("Brake");
 	private static VehilcleDisplay display;
-	private VehicleContext vehicleContext;
+	// private VehicleContext vehicleContext;
 
 	public static VehilcleDisplay getInstance() {
 		return display;
@@ -60,8 +60,8 @@ public class GUIDisplay extends Application implements VehilcleDisplay, EventHan
 	 */
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		vehicleContext = VehicleContext.instance();
-		vehicleContext.setDisplay(this);
+		// vehicleContext = VehicleContext.instance();
+		// vehicleContext.setDisplay(this);
 		display = this;
 		carOn = new Button("On");
 		carOff = new Button("Off");
@@ -94,13 +94,13 @@ public class GUIDisplay extends Application implements VehilcleDisplay, EventHan
 		Scene scene = new Scene(pane);
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("Vehicle State");
-		try {
-			while (vehicleContext == null) {
-				Thread.sleep(1000);
-			}
-		} catch (Exception e) {
+		// try {
+		// while () {
+		// Thread.sleep(1000);
+		// }
+		// } catch (Exception e) {
 
-		}
+		// }
 		primaryStage.show();
 		primaryStage.addEventHandler(WindowEvent.WINDOW_CLOSE_REQUEST, new EventHandler<WindowEvent>() {
 			@Override
@@ -171,17 +171,17 @@ public class GUIDisplay extends Application implements VehilcleDisplay, EventHan
 	@Override
 	public void handle(ActionEvent event) {
 		if (event.getSource().equals(carOn)) {
-			VehicleContext.instance().method();
+			// VehicleContext.instance().method();
 		} else if (event.getSource().equals(carOff)) {
-			VehicleContext.instance().method();
+			// VehicleContext.instance().method();
 		} else if (event.getSource().equals(parkCar)) {
-			VehicleContext.instance().method();
+			// VehicleContext.instance().method();
 		} else if (event.getSource().equals(driveCar)) {
-			VehicleContext.instance().method();
+			// VehicleContext.instance().method();
 		} else if (event.getSource().equals(accelerateCar)) {
-			VehicleContext.instance().method();
+			// VehicleContext.instance().method();
 		} else if (event.getSource().equals(brakeCar)) {
-			VehicleContext.instance().method();
+			// VehicleContext.instance().method();
 		}
 
 	}
