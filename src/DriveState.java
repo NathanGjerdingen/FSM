@@ -1,4 +1,4 @@
-
+import timer.Notifiable;
 
 public class DriveState extends StateAdapter implements Notifiable{
 	
@@ -40,15 +40,15 @@ public class DriveState extends StateAdapter implements Notifiable{
 	}
 
 	@Override
-	public boolean pressBreakPedal() {
+	public void pressBreakPedal() {
 		// TODO Auto-generated method stub
-		return false;
+		
 	}
 
 	@Override
-	public boolean pressGasPedal() {
+	public void pressGasPedal() {
 		// TODO Auto-generated method stub
-		return false;
+		
 	}
 
 	@Override

@@ -1,8 +1,11 @@
+import timer.Notifiable;
+import timer.Timer;
 
 public class AcceleratingState extends StateAdapter implements Notifiable{
 
 	private static AcceleratingState instance;
-	
+	 private Timer timer;
+	 
 	private AcceleratingState() {
 	}
 	
@@ -15,38 +18,45 @@ public class AcceleratingState extends StateAdapter implements Notifiable{
 	
 	@Override
 	public void timerTicked(int timeLeft) {
-		// TODO Auto-generated method stub
+		if(VehicleContext.getSpeed() == 50) {
+			
+		}else {
+			VehicleContext.setSpeed(VehicleContext.getSpeed() + 5);
+			VehicleContext.instance().showSpeed();
+		}
 		
 	}
 
+	//Dont need this?
 	@Override
 	public void timerRanOut() {
-		// TODO Auto-generated method stub
+		// Doesn't do anything because no time
 		
 	}
 
 	@Override
 	public void enter() {
-		// TODO Auto-generated method stub
+		timer = new Timer(this);
+		VehicleContext.instance().showAcceleratingState();
 		
 	}
 
 	@Override
 	public void leave() {
-		// TODO Auto-generated method stub
+		timer.stop();
+        timer = null;
+        VehicleContext.instance().showDriveState();
 		
 	}
 
 	@Override
-	public boolean pressBreakPedal() {
-		// TODO Auto-generated method stub
-		return false;
+	public void pressBreakPedal() {
+		VehicleContext.instance().changeState(BrakingState.instance());
 	}
 
 	@Override
-	public boolean pressGasPedal() {
-		// TODO Auto-generated method stub
-		return false;
+	public void pressGasPedal() {
+		//Do nothing as we are already in this state.
 	}
 
 	@Override

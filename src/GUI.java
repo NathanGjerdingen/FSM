@@ -160,4 +160,14 @@ public class GUI extends Application implements VehilcleDisplay, EventHandler<Ac
 
 	}
 
+	public static void showDriveState() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void showSpeed(int speed) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

@@ -43,7 +43,7 @@ public class Timer implements PropertyChangeListener {
      * @param timeValue
      *            the initial time value after which the timer runs out of time.
      */
-    public Timer(Notifiable client, int timeValue) {
+    public Timer(Notifiable client) {
         this.client = client;
         this.timeValue = timeValue;
         Clock.instance().addPropertyChangeListener(this);

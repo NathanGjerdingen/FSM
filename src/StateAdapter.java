@@ -6,8 +6,8 @@ public abstract class StateAdapter {
     public abstract void leave();
     
     // Actions that can be done in every state...
-    public abstract boolean pressBreakPedal();
-    public abstract boolean pressGasPedal();
+    public abstract void pressBreakPedal();
+    public abstract void pressGasPedal();
     
     // Boolean methods to check if pedals are currently pressed...
     public abstract boolean breakPedalIsPressed();

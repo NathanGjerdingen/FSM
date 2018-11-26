@@ -1,3 +1,4 @@
+import timer.Notifiable;
 
 public class BrakingState extends StateAdapter implements Notifiable{
 
@@ -15,7 +16,10 @@ public class BrakingState extends StateAdapter implements Notifiable{
 	
 	@Override
 	public void timerTicked(int timeLeft) {
-		// TODO Auto-generated method stub
+		if(VehicleContext.getSpeed() > 0) {
+			VehicleContext.setSpeed(VehicleContext.getSpeed() - 5);
+			VehicleContext.instance().showSpeed();
+		}
 		
 	}
 
@@ -38,15 +42,15 @@ public class BrakingState extends StateAdapter implements Notifiable{
 	}
 
 	@Override
-	public boolean pressBreakPedal() {
+	public void pressBreakPedal() {
 		// TODO Auto-generated method stub
-		return false;
+		
 	}
 
 	@Override
-	public boolean pressGasPedal() {
+	public void pressGasPedal() {
 		// TODO Auto-generated method stub
-		return false;
+		
 	}
 
 	@Override

@@ -89,7 +89,7 @@ public class CookingState extends MicrowaveState implements Notifiable {
      */
     @Override
     public void enter() {
-        timer = new Timer(this, 10);
+        timer = new Timer(this);
         MicrowaveContext.instance().showCooking();
         MicrowaveContext.instance().showTimeLeft(timer.getTimeValue());
     }
