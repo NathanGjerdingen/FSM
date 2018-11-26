@@ -53,4 +53,9 @@ public class VehicleContext {
 		// TODO Auto-generated method stub
 		
 	}
+
+	public void showBrakingState() {
+		// TODO Auto-generated method stub
+		
+	}
 }

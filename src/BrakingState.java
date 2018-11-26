@@ -1,56 +1,62 @@
 import timer.Notifiable;
+import timer.Timer;
 
-public class BrakingState extends StateAdapter implements Notifiable{
+public class BrakingState extends StateAdapter implements Notifiable {
 
 	private static BrakingState instance;
-	
+	private Timer timer;
+
 	private BrakingState() {
 	}
-	
-    public static BrakingState instance() {
-        if (instance == null) {
-            instance = new BrakingState();
-        }
-        return instance;
-    }
-	
+
+	public static BrakingState instance() {
+		if (instance == null) {
+			instance = new BrakingState();
+		}
+		return instance;
+	}
+
 	@Override
 	public void timerTicked(int timeLeft) {
-		if(VehicleContext.getSpeed() > 0) {
+		if (VehicleContext.getSpeed() == 0) {
+			VehicleContext.instance().changeState(DriveState.instance());
+		}
+		else {
 			VehicleContext.setSpeed(VehicleContext.getSpeed() - 5);
 			VehicleContext.instance().showSpeed();
 		}
-		
+
 	}
 
 	@Override
 	public void timerRanOut() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void enter() {
-		// TODO Auto-generated method stub
-		
+		timer = new Timer(this);
+		VehicleContext.instance().showBrakingState();
+
 	}
 
 	@Override
 	public void leave() {
-		// TODO Auto-generated method stub
-		
+		timer.stop();
+		timer = null;
+		VehicleContext.instance().showDriveState();
 	}
 
 	@Override
 	public void pressBreakPedal() {
-		// TODO Auto-generated method stub
-		
+		// Do nothing as we are already in braking state
+
 	}
 
 	@Override
 	public void pressGasPedal() {
-		// TODO Auto-generated method stub
-		
+		VehicleContext.instance().changeState(AcceleratingState.instance());
 	}
 
 	@Override
