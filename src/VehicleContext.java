@@ -58,4 +58,8 @@ public class VehicleContext {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public void showParkedState() {
+		
+	}
 }

@@ -16,47 +16,47 @@ public class ParkState extends StateAdapter implements Notifiable{
 	
 	@Override
 	public void timerTicked(int timeLeft) {
-		// TODO Auto-generated method stub
+		//Does nothing, nothing happens in park
 		
 	}
 
 	@Override
 	public void timerRanOut() {
-		// TODO Auto-generated method stub
+		//Does nothing no use having this
 		
 	}
 
 	@Override
 	public void enter() {
-		// TODO Auto-generated method stub
+		VehicleContext.instance().showParkedState();
 		
 	}
 
 	@Override
 	public void leave() {
-		// TODO Auto-generated method stub
+		VehicleContext.instance().showDriveState();
 		
 	}
 
 	@Override
 	public void pressBreakPedal() {
-		// TODO Auto-generated method stub
+		//Do nothing as cant break or go in this state
 	}
 
 	@Override
 	public void pressGasPedal() {
-		// TODO Auto-generated method stub
+		//Do nothing as cant break or go in this state
 	}
 
 	@Override
 	public boolean breakPedalIsPressed() {
-		// TODO Auto-generated method stub
+		//Do nothing as cant break or go in this state
 		return false;
 	}
 
 	@Override
 	public boolean gasPedalIsPressed() {
-		// TODO Auto-generated method stub
+		//Do nothing as cant break or go in this state
 		return false;
 	}
 
