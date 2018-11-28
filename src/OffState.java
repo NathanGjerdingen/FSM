@@ -28,25 +28,25 @@ public class OffState extends StateAdapter implements Notifiable{
 
 	@Override
 	public void enter() {
-		// TODO Auto-generated method stub
+		VehicleContext.instance().showOffState();
 		
 	}
 
 	@Override
 	public void leave() {
-		// TODO Auto-generated method stub
+		VehicleContext.instance().showOnState();
 		
 	}
 
 	@Override
 	public void pressBreakPedal() {
-		// TODO Auto-generated method stub
+		// Do nothing car is off
 		
 	}
 
 	@Override
 	public void pressGasPedal() {
-		// TODO Auto-generated method stub
+		// do nothing car is off
 		
 	}
 

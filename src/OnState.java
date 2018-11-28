@@ -16,37 +16,37 @@ public class OnState extends StateAdapter implements Notifiable{
 	
 	@Override
 	public void timerTicked(int timeLeft) {
-		// TODO Auto-generated method stub
+		//do nothing
 		
 	}
 
 	@Override
 	public void timerRanOut() {
-		// TODO Auto-generated method stub
+		//doesnt do anything
 		
 	}
 
 	@Override
 	public void enter() {
-		// TODO Auto-generated method stub
+		VehicleContext.instance().showOnState();
 		
 	}
 
 	@Override
 	public void leave() {
-		// TODO Auto-generated method stub
+		VehicleContext.instance().showOffState();
 		
 	}
 
 	@Override
 	public void pressBreakPedal() {
-		// TODO Auto-generated method stub
+		//Does nothing? Car isnt moving
 		
 	}
 
 	@Override
 	public void pressGasPedal() {
-		// TODO Auto-generated method stub
+		VehicleContext.instance().changeState(AcceleratingState.instance());
 		
 	}
 

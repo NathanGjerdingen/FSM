@@ -62,4 +62,14 @@ public class VehicleContext {
 	public void showParkedState() {
 		
 	}
+
+	public void showOnState() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void showOffState() {
+		// TODO Auto-generated method stub
+		
+	}
 }
