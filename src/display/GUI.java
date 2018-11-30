@@ -10,6 +10,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import states.*;
 import states.VehicleContext;
 
 public class GUI extends Application implements VehicleDisplay, EventHandler<ActionEvent> {
@@ -146,9 +147,9 @@ public class GUI extends Application implements VehicleDisplay, EventHandler<Act
 	@Override
 	public void handle(ActionEvent event) {
 		if (event.getSource().equals(carOn)) {
-			// VehicleContext.instance().method();
+			vehicleContext.changeState(OnState.instance());
 		} else if (event.getSource().equals(carOff)) {
-			// VehicleContext.instance().method();
+			vehicleContext.changeState(OffState.instance());
 		} else if (event.getSource().equals(parkCar)) {
 			// VehicleContext.instance().method();
 		} else if (event.getSource().equals(driveCar)) {
@@ -159,16 +160,6 @@ public class GUI extends Application implements VehicleDisplay, EventHandler<Act
 			// VehicleContext.instance().method();
 		}
 
-	}
-
-	public static void showDriveState() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public static void showSpeed(int speed) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

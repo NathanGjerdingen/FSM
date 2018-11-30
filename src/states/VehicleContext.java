@@ -24,7 +24,7 @@ public class VehicleContext {
 	}
 
 	public void showDriveState() {
-		GUI.showDriveState();
+		display.showCarDrive();
 	}
 
 	/**
@@ -47,31 +47,31 @@ public class VehicleContext {
 	}
 
 	public void showSpeed() {
-		GUI.showSpeed(speed);
+		display.showMilesPerHour(speed);
 		
 	}
 
 	public void showAcceleratingState() {
-		// TODO Auto-generated method stub
+		display.showAccelerating();
 		
 	}
 
 	public void showBrakingState() {
-		// TODO Auto-generated method stub
+		display.showBraking();
 		
 	}
 	
 	public void showParkedState() {
-		
+		display.showCarParked();
 	}
 
 	public void showOnState() {
-		// TODO Auto-generated method stub
+		display.showCarOn();
 		
 	}
 
 	public void showOffState() {
-		// TODO Auto-generated method stub
+		display.showCarOff();
 		
 	}
 
