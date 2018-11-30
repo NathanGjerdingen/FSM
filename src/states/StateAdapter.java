@@ -1,4 +1,4 @@
-
+package states;
 public abstract class StateAdapter {
 
 	// Methods for transitioning from state-to-state...

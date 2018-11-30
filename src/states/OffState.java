@@ -1,3 +1,5 @@
+package states;
+
 import timer.Notifiable;
 
 public class OffState extends StateAdapter implements Notifiable {

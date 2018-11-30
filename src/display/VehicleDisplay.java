@@ -1,5 +1,6 @@
+package display;
 
-public interface VehilcleDisplay {
+public interface VehicleDisplay {
 	public void showMilesPerHour(int speed);
 	public void showCarOn();
 	public void showCarOff();

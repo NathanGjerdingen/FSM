@@ -1,10 +1,9 @@
 package start;
-
-import display.GUIDisplay;
-import display.MicrowaveDisplay;
+import display.GUI;
+import display.VehicleDisplay;
 import javafx.application.Application;
 import states.Clock;
-import states.MicrowaveContext;
+import states.VehicleContext;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,16 +11,16 @@ public class Main {
         new Thread() {
             @Override
             public void run() {
-                Application.launch(GUIDisplay.class, null);
+                Application.launch(GUI.class, null);
             }
         }.start();
         try {
-            while (GUIDisplay.getInstance() == null) {
+            while (GUI.getInstance() == null) {
                 Thread.sleep(1000);
             }
         } catch (InterruptedException ie) {
         }
-        MicrowaveDisplay display = GUIDisplay.getInstance();
-        MicrowaveContext.instance().setDisplay(display);
+        VehicleDisplay display = GUI.getInstance();
+        VehicleContext.instance().setDisplay(display);
     }
 }

@@ -1,3 +1,5 @@
+package states;
+
 import timer.Notifiable;
 import timer.Timer;
 

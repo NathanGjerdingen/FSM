@@ -1,6 +1,7 @@
-
+package states;
+import display.*;
 public class VehicleContext {
-	private VehilcleDisplay display;
+	private VehicleDisplay display;
 	private StateAdapter currentState;
 	private static VehicleContext instance;
 	private static int speed = 0;
@@ -18,7 +19,7 @@ public class VehicleContext {
 		return instance;
 	}
 
-	public void setDisplay(VehilcleDisplay display) {
+	public void setDisplay(VehicleDisplay display) {
 		this.display = display;
 	}
 

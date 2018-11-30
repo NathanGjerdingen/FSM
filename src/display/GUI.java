@@ -1,4 +1,4 @@
-
+package display;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -10,8 +10,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import states.VehicleContext;
 
-public class GUI extends Application implements VehilcleDisplay, EventHandler<ActionEvent> {
+public class GUI extends Application implements VehicleDisplay, EventHandler<ActionEvent> {
 	private Button carOn;
 	private Button carOff;
 	private Button parkCar;
@@ -22,10 +23,10 @@ public class GUI extends Application implements VehilcleDisplay, EventHandler<Ac
 	private Text MPHValue = new Text("            ");
 	private Text gearStatus = new Text("Park");
 	private Text movementStatus = new Text("Brake");
-	private static VehilcleDisplay display;
+	private static VehicleDisplay display;
 	private VehicleContext vehicleContext;
 
-	public static VehilcleDisplay getInstance() {
+	public static VehicleDisplay getInstance() {
 		return display;
 	}
 

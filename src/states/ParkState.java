@@ -1,3 +1,5 @@
+package states;
+
 import timer.Notifiable;
 
 public class ParkState extends StateAdapter implements Notifiable{
