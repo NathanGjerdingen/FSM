@@ -4,6 +4,7 @@ public class VehicleContext {
 	private StateAdapter currentState;
 	private static VehicleContext instance;
 	private static int speed = 0;
+	private static boolean isBreaking = false;
 	
 	private VehicleContext() {
 		instance = this;
@@ -71,5 +72,13 @@ public class VehicleContext {
 	public void showOffState() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public static boolean getisBreaking() {
+		return isBreaking;
+	}
+
+	public static void setisBreaking(boolean isBreaking) {
+		VehicleContext.isBreaking = isBreaking;
 	}
 }

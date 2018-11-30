@@ -1,59 +1,59 @@
 import timer.Notifiable;
 
-public class OffState extends StateAdapter implements Notifiable{
-	
+public class OffState extends StateAdapter implements Notifiable {
+
 	private static OffState instance;
-	
+
 	private OffState() {
 	}
-	
-    public static OffState instance() {
-        if (instance == null) {
-            instance = new OffState();
-        }
-        return instance;
-    }
-	
+
+	public static OffState instance() {
+		if (instance == null) {
+			instance = new OffState();
+		}
+		return instance;
+	}
+
 	@Override
 	public void timerTicked(int timeLeft) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void timerRanOut() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void enter() {
-		VehicleContext.instance().showOffState();
-		
+		if(VehicleContext.getisBreaking() == true && VehicleContext.getSpeed() == 0) {
+			VehicleContext.instance().showOffState();
+		}
 	}
 
 	@Override
 	public void leave() {
 		VehicleContext.instance().showOnState();
-		
+
 	}
 
 	@Override
 	public void pressBreakPedal() {
 		// Do nothing car is off
-		
+
 	}
 
 	@Override
 	public void pressGasPedal() {
 		// do nothing car is off
-		
+
 	}
 
 	@Override
 	public boolean breakPedalIsPressed() {
-		// TODO Auto-generated method stub
-		return false;
+		return VehicleContext.getisBreaking();
 	}
 
 	@Override
