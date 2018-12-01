@@ -37,6 +37,10 @@ public class VehicleContext {
 		currentState = nextState;
 		currentState.enter();
 	}
+	
+	public void gasPedalPressed() {
+		currentState.pressGasPedal();
+	}
 
 	public static int getSpeed() {
 		return speed;

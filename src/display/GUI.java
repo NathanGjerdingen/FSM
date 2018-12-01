@@ -66,6 +66,9 @@ public class GUI extends Application implements VehicleDisplay, EventHandler<Act
 		carOn.setOnAction(this);
 		carOff.setOnAction(this);
 		parkCar.setOnAction(this);
+		driveCar.setOnAction(this);
+		accelerateCar.setOnAction(this);
+		brakeCar.setOnAction(this);
 		Scene scene = new Scene(pane);
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("Vehicle State");
@@ -150,13 +153,11 @@ public class GUI extends Application implements VehicleDisplay, EventHandler<Act
 		} else if (event.getSource().equals(carOff)) {
 			vehicleContext.changeState(OffState.instance());
 		} else if (event.getSource().equals(parkCar)) {
-			if(vehicleContext.instance().getisBreaking() == true && vehicleContext.instance().getSpeed() == 0) {
-				vehicleContext.changeState(ParkState.instance());
-			}
+			
 		} else if (event.getSource().equals(driveCar)) {
 			vehicleContext.changeState(DriveState.instance());
 		} else if (event.getSource().equals(accelerateCar)) {
-			vehicleContext.changeState(AcceleratingState.instance());
+			vehicleContext.gasPedalPressed();
 		} else if (event.getSource().equals(brakeCar)) {
 			vehicleContext.changeState(BrakingState.instance());
 		}
