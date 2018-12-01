@@ -39,6 +39,7 @@ public class BrakingState extends StateAdapter implements Notifiable {
 	@Override
 	public void enter() {
 		timer = new Timer(this);
+		VehicleContext.setisBreaking(true);
 		VehicleContext.instance().showBrakingState();
 
 	}
@@ -47,6 +48,7 @@ public class BrakingState extends StateAdapter implements Notifiable {
 	public void leave() {
 		timer.stop();
 		timer = null;
+		VehicleContext.setisBreaking(false);
 		VehicleContext.instance().showDriveState();
 	}
 
