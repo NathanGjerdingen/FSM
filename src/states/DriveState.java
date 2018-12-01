@@ -31,25 +31,25 @@ public class DriveState extends StateAdapter implements Notifiable{
 
 	@Override
 	public void enter() {
-		// TODO Auto-generated method stub
+		VehicleContext.instance().showDriveState();
 		
 	}
 
 	@Override
 	public void leave() {
-		// TODO Auto-generated method stub
+		//idk
 		
 	}
 
 	@Override
 	public void pressBreakPedal() {
-		// TODO Auto-generated method stub
+		VehicleContext.instance().changeState(BrakingState.instance());
 		
 	}
 
 	@Override
 	public void pressGasPedal() {
-		// TODO Auto-generated method stub
+		VehicleContext.instance().changeState(AcceleratingState.instance());
 		
 	}
 
