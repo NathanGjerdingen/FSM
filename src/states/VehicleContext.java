@@ -41,6 +41,10 @@ public class VehicleContext {
 	public void gasPedalPressed() {
 		currentState.pressGasPedal();
 	}
+	
+	public void brakePendalPress(){
+		currentState.pressBreakPedal();
+	}
 
 	public static int getSpeed() {
 		return speed;
@@ -52,17 +56,14 @@ public class VehicleContext {
 
 	public void showSpeed() {
 		display.showMilesPerHour(speed);
-		
 	}
 
 	public void showAcceleratingState() {
 		display.showAccelerating();
-		
 	}
 
 	public void showBrakingState() {
 		display.showBraking();
-		
 	}
 	
 	public void showParkedState() {
@@ -71,12 +72,10 @@ public class VehicleContext {
 
 	public void showOnState() {
 		display.showCarOn();
-		
 	}
 
 	public void showOffState() {
 		display.showCarOff();
-		
 	}
 
 	public static boolean getisBreaking() {
