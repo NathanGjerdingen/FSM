@@ -11,7 +11,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import states.*;
-import states.VehicleContext;
 
 public class GUI extends Application implements VehicleDisplay, EventHandler<ActionEvent> {
 	private Button carOn;
@@ -151,13 +150,15 @@ public class GUI extends Application implements VehicleDisplay, EventHandler<Act
 		} else if (event.getSource().equals(carOff)) {
 			vehicleContext.changeState(OffState.instance());
 		} else if (event.getSource().equals(parkCar)) {
-			// VehicleContext.instance().method();
+			if(vehicleContext.instance().getisBreaking() == true && vehicleContext.instance().getSpeed() == 0) {
+				vehicleContext.changeState(ParkState.instance());
+			}
 		} else if (event.getSource().equals(driveCar)) {
-			// VehicleContext.instance().method();
+			vehicleContext.changeState(DriveState.instance());
 		} else if (event.getSource().equals(accelerateCar)) {
-			// VehicleContext.instance().method();
+			vehicleContext.changeState(AcceleratingState.instance());
 		} else if (event.getSource().equals(brakeCar)) {
-			// VehicleContext.instance().method();
+			vehicleContext.changeState(BrakingState.instance());
 		}
 
 	}
