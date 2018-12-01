@@ -77,11 +77,8 @@ public class Timer implements PropertyChangeListener {
 
     @Override
     public void propertyChange(PropertyChangeEvent arg0) {
-        if (--timeValue <= 0) {
-            client.timerRanOut();
-            Clock.instance().removePropertyChangeListener(this);
-        } else {
+       
             client.timerTicked(timeValue);
-        }
+        
     }
 }

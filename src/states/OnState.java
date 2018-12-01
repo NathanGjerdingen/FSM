@@ -36,7 +36,6 @@ public class OnState extends StateAdapter implements Notifiable{
 
 	@Override
 	public void leave() {
-		VehicleContext.instance().showOffState();
 		
 	}
 

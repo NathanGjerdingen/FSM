@@ -23,7 +23,7 @@ public class AcceleratingState extends StateAdapter implements Notifiable{
 		if(VehicleContext.getSpeed() == 50) {
 			
 		}else {
-			VehicleContext.setSpeed(VehicleContext.getSpeed() + 5);
+			VehicleContext.instance().setSpeed(VehicleContext.getSpeed() + 5);
 			VehicleContext.instance().showSpeed();
 		}
 		
