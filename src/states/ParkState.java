@@ -31,12 +31,13 @@ public class ParkState extends StateAdapter implements Notifiable{
 	@Override
 	public void enter() {
 		VehicleContext.instance().showParkedState();
+		VehicleContext.setParked(true);
 		
 	}
 
 	@Override
 	public void leave() {
-	
+	VehicleContext.setParked(false);
 	}
 
 	@Override

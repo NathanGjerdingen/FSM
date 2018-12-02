@@ -31,7 +31,7 @@ public class OnState extends StateAdapter implements Notifiable{
 	@Override
 	public void enter() {
 		VehicleContext.instance().showOnState();
-		
+		VehicleContext.setParked(true);
 	}
 
 	@Override

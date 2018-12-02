@@ -6,6 +6,7 @@ public class VehicleContext {
 	private static VehicleContext instance;
 	private static int speed = 0;
 	private static boolean isBreaking = true;
+	private static boolean isParked = true;
 	
 	private VehicleContext() {
 		instance = this;
@@ -93,7 +94,7 @@ public class VehicleContext {
 	}
 	
 	public void turnCarOff() {
-		if (currentState.equals(ParkState.instance())) {
+		if (isParked == true) {
 			changeState(OffState.instance());
 		}
 	}
@@ -102,5 +103,13 @@ public class VehicleContext {
 		if (currentState.equals(ParkState.instance())) {
 			changeState(DriveState.instance());
 		}
+	}
+
+	public static boolean isParked() {
+		return isParked;
+	}
+
+	public static void setParked(boolean isParked) {
+		VehicleContext.isParked = isParked;
 	}
 }
