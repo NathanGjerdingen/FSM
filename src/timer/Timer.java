@@ -74,11 +74,12 @@ public class Timer implements PropertyChangeListener {
     public int getTimeValue() {
         return timeValue;
     }
-
+    
+    /**
+     * Makes sure the timer tickes
+     */
     @Override
     public void propertyChange(PropertyChangeEvent arg0) {
-       
             client.timerTicked(timeValue);
-        
     }
 }

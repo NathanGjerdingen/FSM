@@ -2,9 +2,13 @@ package start;
 import display.GUI;
 import display.VehicleDisplay;
 import javafx.application.Application;
-import states.Clock;
+import timer.Clock;
 import states.VehicleContext;
 
+
+/**
+ * Main method to run program.
+ */
 public class Main {
     public static void main(String[] args) {
         Clock.instance();

@@ -1,16 +1,13 @@
 package states;
-public abstract class StateAdapter {
 
-	// Methods for transitioning from state-to-state...
+/**
+ * Adapter methods that are needed by states
+ */
+public abstract class StateAdapter {
     public abstract void enter();
     public abstract void leave();
-    
-    // Actions that can be done in every state...
     public abstract void pressBreakPedal();
     public abstract void pressGasPedal();
-    
-    // Boolean methods to check if pedals are currently pressed...
     public abstract boolean breakPedalIsPressed();
-    public abstract boolean gasPedalIsPressed();
-    
+ 
 }

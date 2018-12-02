@@ -1,5 +1,9 @@
 package display;
 
+/**
+ * Interface for for the display
+ *
+ */
 public interface VehicleDisplay {
 	public void showMilesPerHour(int speed);
 	public void showCarOn();

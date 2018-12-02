@@ -12,6 +12,10 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import states.*;
 
+/**
+ * GUI class for the FSM
+ *
+ */
 public class GUI extends Application implements VehicleDisplay, EventHandler<ActionEvent> {
 	private Button carOn;
 	private Button carOff;
@@ -123,7 +127,7 @@ public class GUI extends Application implements VehicleDisplay, EventHandler<Act
 	/**
 	 * display the MPH of vehicle
 	 * 
-	 * @param the MPH
+	 * @param value
 	 */
 	@Override
 	public void showMilesPerHour(int value) {
