@@ -36,8 +36,7 @@ public class ParkState extends StateAdapter implements Notifiable{
 
 	@Override
 	public void leave() {
-		VehicleContext.instance().showDriveState();
-		
+	
 	}
 
 	@Override

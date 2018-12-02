@@ -85,4 +85,11 @@ public class VehicleContext {
 	public static void setisBreaking(boolean isBreaking) {
 		VehicleContext.isBreaking = isBreaking;
 	}
+
+	public void parkCar() {
+		if(speed == 0 && isBreaking == true) {
+			changeState(ParkState.instance());
+		}
+		
+	}
 }
