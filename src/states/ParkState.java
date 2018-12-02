@@ -47,7 +47,7 @@ public class ParkState extends StateAdapter implements Notifiable{
 
 	@Override
 	public void pressGasPedal() {
-		//Do nothing as cant break or go in this state
+		VehicleContext.instance().changeState(AcceleratingState.instance());
 	}
 
 	@Override
