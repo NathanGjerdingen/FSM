@@ -151,17 +151,15 @@ public class GUI extends Application implements VehicleDisplay, EventHandler<Act
 		if (event.getSource().equals(carOn)) {
 			vehicleContext.changeState(OnState.instance());
 		} else if (event.getSource().equals(carOff)) {
-			vehicleContext.changeState(OffState.instance());
+			vehicleContext.turnCarOff();
 		} else if (event.getSource().equals(parkCar)) {
 			vehicleContext.parkCar();
 		} else if (event.getSource().equals(driveCar)) {
-			vehicleContext.changeState(DriveState.instance());
+			vehicleContext.driveCar();
 		} else if (event.getSource().equals(accelerateCar)) {
 			vehicleContext.gasPedalPressed();
 		} else if (event.getSource().equals(brakeCar)) {
 			vehicleContext.changeState(BrakingState.instance());
 		}
-
 	}
-
 }

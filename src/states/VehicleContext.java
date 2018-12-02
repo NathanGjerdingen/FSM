@@ -90,6 +90,17 @@ public class VehicleContext {
 		if(speed == 0 && isBreaking == true) {
 			changeState(ParkState.instance());
 		}
-		
+	}
+	
+	public void turnCarOff() {
+		if (currentState.equals(ParkState.instance())) {
+			changeState(OffState.instance());
+		}
+	}
+
+	public void driveCar() {
+		if (currentState.equals(ParkState.instance())) {
+			changeState(DriveState.instance());
+		}
 	}
 }
