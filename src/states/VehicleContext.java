@@ -100,7 +100,7 @@ public class VehicleContext {
 	}
 
 	public void driveCar() {
-		if (currentState.equals(ParkState.instance())) {
+		if (isParked == true) {
 			changeState(DriveState.instance());
 		}
 	}
