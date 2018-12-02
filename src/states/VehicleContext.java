@@ -5,7 +5,7 @@ public class VehicleContext {
 	private StateAdapter currentState;
 	private static VehicleContext instance;
 	private static int speed = 0;
-	private static boolean isBreaking = false;
+	private static boolean isBreaking = true;
 	
 	private VehicleContext() {
 		instance = this;

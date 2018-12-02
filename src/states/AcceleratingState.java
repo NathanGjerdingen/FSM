@@ -40,6 +40,7 @@ public class AcceleratingState extends StateAdapter implements Notifiable{
 	public void enter() {
 		timer = new Timer(this);
 		VehicleContext.setisBreaking(false);
+		VehicleContext.instance().showDriveState();
 		VehicleContext.instance().showAcceleratingState();
 		
 	}
