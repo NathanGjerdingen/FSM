@@ -170,7 +170,7 @@ public class VehicleContext {
 	 *  -	isBreaking = true
 	 */
 	public void parkCar() {
-		if(speed == 0 && isBreaking == true) {
+		if(speed == 0 && isBreaking == true && isOn == true) {
 			changeState(ParkState.instance());
 		}
 	}
