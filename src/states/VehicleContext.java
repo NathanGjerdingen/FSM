@@ -186,6 +186,18 @@ public class VehicleContext {
 			changeState(OffState.instance());
 		}
 	}
+	
+	/**
+	 * Method that puts FSM into on state
+	 * 
+	 * Preconditions:
+	 * 		isOn == false
+	 */
+	public void turnCarOn() {
+		if (isOn == false) {
+			changeState(OnState.instance());
+		}
+	}
 
 	/**
 	 * Method that puts FSM into Drive state

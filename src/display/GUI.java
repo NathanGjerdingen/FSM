@@ -153,7 +153,7 @@ public class GUI extends Application implements VehicleDisplay, EventHandler<Act
 	@Override
 	public void handle(ActionEvent event) {
 		if (event.getSource().equals(carOn)) {
-			vehicleContext.changeState(OnState.instance());
+			vehicleContext.turnCarOn();
 		} else if (event.getSource().equals(carOff)) {
 			vehicleContext.turnCarOff();
 		} else if (event.getSource().equals(parkCar)) {
