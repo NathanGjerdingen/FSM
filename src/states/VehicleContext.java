@@ -19,7 +19,7 @@ public class VehicleContext {
 	private static int speed = 0;
 	private static boolean isBreaking = true;
 	private static boolean isParked = true;
-	
+	private static boolean isOn = false;
 	/**
 	 * Set up instance for class
 	 */
@@ -82,7 +82,7 @@ public class VehicleContext {
 	/**
 	 * Method for when the brake pedal is pressed
 	 */
-	public void brakePendalPress(){
+	public void brakePedalPress(){
 		currentState.pressBreakPedal();
 	}
 
@@ -194,7 +194,7 @@ public class VehicleContext {
 	 * 	-	isParked = true
 	 */
 	public void driveCar() {
-		if (isParked == true) {
+		if (isParked == true && isOn == true) {
 			changeState(DriveState.instance());
 		}
 	}
@@ -215,5 +215,13 @@ public class VehicleContext {
 	 */
 	public static void setParked(boolean isParked) {
 		VehicleContext.isParked = isParked;
+	}
+
+	public static boolean isOn() {
+		return isOn;
+	}
+
+	public static void setOn(boolean isOn) {
+		VehicleContext.isOn = isOn;
 	}
 }

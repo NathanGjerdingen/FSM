@@ -53,6 +53,7 @@ public class OffState extends StateAdapter implements Notifiable {
 	public void enter() {
 		if(VehicleContext.getisBreaking() == true && VehicleContext.getSpeed() == 0) {
 			VehicleContext.instance().showOffState();
+			VehicleContext.setOn(false);
 		}
 	}
 
