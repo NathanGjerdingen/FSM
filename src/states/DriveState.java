@@ -52,6 +52,7 @@ public class DriveState extends StateAdapter implements Notifiable{
 	@Override
 	public void enter() {
 		VehicleContext.instance().showDriveState();
+		VehicleContext.setParked(false);
 	}
 	
 	/**
